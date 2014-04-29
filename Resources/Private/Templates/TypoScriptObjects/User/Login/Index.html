@@ -1,0 +1,12 @@
+<f:flashMessages />
+<f:form action="authenticate" method="post">
+    <li class="has-form">
+        <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" type="text" placeholder="username" />
+    </li>
+    <li class="has-form">
+        <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" type ="password" placeholder="password" />
+    </li>
+    <li class="has-form">
+        <f:form.submit value="Login" class="button" />
+    </li>
+ </f:form>

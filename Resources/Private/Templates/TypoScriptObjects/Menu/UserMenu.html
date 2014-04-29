@@ -1,0 +1,23 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace feManager=MapSeven\Neos\FrontendUserManager\ViewHelpers}
+<f:for each="{items}" as="item" iteration="menuItemIterator">
+    <feManager:security.ifAuthenticated providerName="{providerName}">
+        <f:then>
+            <f:if condition="{item.node.properties.showAtAnyLogin}">
+                <li class="{item.state}">
+                    <neos:link.node node="{item.node}"><i class="fa fa-{item.node.properties.navIcon} fa-fw"></i>{item.label}</neos:link.node>
+                </li>
+                <li class="divider"></li>
+            </f:if>
+        </f:then>
+        <f:else>
+            <f:if condition="{item.node.properties.hideAtAnyLogin}">
+                <li class="{item.state}">
+                    <neos:link.node node="{item.node}"><i class="fa fa-{item.node.properties.navIcon} fa-fw"></i>{item.label}</neos:link.node>
+                </li>
+                <li class="divider"></li>
+            </f:if>
+        </f:else>
+    </feManager:security.ifAuthenticated>
+</f:for>
+
