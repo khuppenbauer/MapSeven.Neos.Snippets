@@ -11,11 +11,19 @@
         <f:section name="stylesheets">
             <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/foundation.css', package: 'MapSeven.Neos.Snippets')}" media="all" />
             <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Markdown.css', package: 'MapSeven.Markdown')}" media="all" />
         </f:section>
 
         <f:section name="scripts">
+            <script src="{f:uri.resource(path: 'Scripts/vendor/jquery.js', package: 'MapSeven.Neos.Snippets')}"></script>
             <script src="{f:uri.resource(path: 'Scripts/vendor/modernizr.js', package: 'MapSeven.Neos.Snippets')}"></script>
-         </f:section>
+
+            <script src="{f:uri.resource(path: 'Scripts/gist-embed.js', package: 'MapSeven.Markdown')}"></script>
+            <script src="{f:uri.resource(path: 'Scripts/Markdown.Converter.js', package: 'MapSeven.Markdown')}"></script>
+            <script src="{f:uri.resource(path: 'Scripts/Markdown.Sanitizer.js', package: 'MapSeven.Markdown')}"></script>
+            <script src="{f:uri.resource(path: 'Scripts/Markdown.Editor.js', package: 'MapSeven.Markdown')}"></script>
+            <script src="{f:uri.resource(path: 'Scripts/script.js', package: 'MapSeven.Markdown')}"></script>
+        </f:section>
     </head>
     <body>
         <f:section name="body">
@@ -84,7 +92,6 @@
 
         </f:section>
         <f:section name="bodyScripts">
-            <script src="{f:uri.resource(path: 'Scripts/vendor/jquery.js', package: 'MapSeven.Neos.Snippets')}"></script>
             <script src="{f:uri.resource(path: 'Scripts/foundation.min.js', package: 'MapSeven.Neos.Snippets')}"></script>
             <script>
                 $(document).foundation();
