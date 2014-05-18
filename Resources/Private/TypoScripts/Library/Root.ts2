@@ -32,6 +32,7 @@ page = Page {
 				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/MainMenu.html'
 				maximumLevels = 3
 				site = ${site}
+				providerName = ${Configuration.setting('MapSeven.Neos.FrontendUserManager.providerName')}
 			}
 
 			login = MapSeven.Neos.FrontendUserManager:Login
