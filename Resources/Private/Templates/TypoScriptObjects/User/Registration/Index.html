@@ -1,6 +1,6 @@
 <f:flashMessages as="flashMessages">
     <div class="row">
-        <div class="small-6 columns">
+        <div class="small-12 columns">
             <div data-alert class="alert-box warning">
                 <f:for each="{flashMessages}" as="flashMessage">
                     {flashMessage}
@@ -10,11 +10,11 @@
     </div>
 </f:flashMessages>
 <f:form action="create" object="{registration}" objectName="registration" section="registration" method="POST" additionalAttributes="{role:'form'}">
-    <f:render partial="InputField" arguments="{label: 'Username', property: 'username'}" />
-    <f:render partial="PasswordField" arguments="{label: 'Password', property: 'password.0'}" />
-    <f:render partial="PasswordField" arguments="{label: 'Password Repeat', property: 'password.1'}" />
-    <f:render partial="InputField" arguments="{label: 'First name', property: 'firstName'}" />
-    <f:render partial="InputField" arguments="{label: 'Last name', property: 'lastName'}" />
-    <f:render partial="InputField" arguments="{label: 'E-Mail', property: 'email'}" />
+    <f:render partial="Textfield" arguments="{label: 'Username', property: 'username', object: 'registration'}" />
+    <f:render partial="Password" arguments="{label: 'Password', property: 'password.0', object: 'registration'}" />
+    <f:render partial="Password" arguments="{label: 'Password Repeat', property: 'password.1', object: 'registration'}" />
+    <f:render partial="Textfield" arguments="{label: 'First name', property: 'firstName', object: 'registration'}" />
+    <f:render partial="Textfield" arguments="{label: 'Last name', property: 'lastName', object: 'registration'}" />
+    <f:render partial="Textfield" arguments="{label: 'E-Mail', property: 'email', object: 'registration'}" />
     <f:form.submit value="Create Account" class="button" />
 </f:form>
