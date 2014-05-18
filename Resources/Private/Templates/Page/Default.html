@@ -10,19 +10,12 @@
 
         <f:section name="stylesheets">
             <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/foundation.css', package: 'MapSeven.Neos.Snippets')}" media="all" />
-            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Markdown.css', package: 'MapSeven.Markdown')}" media="all" />
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
         </f:section>
 
         <f:section name="scripts">
             <script src="{f:uri.resource(path: 'Scripts/vendor/jquery.js', package: 'MapSeven.Neos.Snippets')}"></script>
             <script src="{f:uri.resource(path: 'Scripts/vendor/modernizr.js', package: 'MapSeven.Neos.Snippets')}"></script>
-
-            <script src="{f:uri.resource(path: 'Scripts/gist-embed.js', package: 'MapSeven.Markdown')}"></script>
-            <script src="{f:uri.resource(path: 'Scripts/Markdown.Converter.js', package: 'MapSeven.Markdown')}"></script>
-            <script src="{f:uri.resource(path: 'Scripts/Markdown.Sanitizer.js', package: 'MapSeven.Markdown')}"></script>
-            <script src="{f:uri.resource(path: 'Scripts/Markdown.Editor.js', package: 'MapSeven.Markdown')}"></script>
-            <script src="{f:uri.resource(path: 'Scripts/script.js', package: 'MapSeven.Markdown')}"></script>
         </f:section>
     </head>
     <body>
@@ -83,9 +76,9 @@
 
             <div class="row">
                 <h1>{node.properties.title}</h1>
-                {content.main -> f:format.raw()}
 
-                {content.left -> f:format.raw()}
+                <div class="small-9 columns">{content.main -> f:format.raw()}</div>
+                <div class="small-3 columns">{content.left -> f:format.raw()}</div>
             </div>
 
             <!-- End Main Content and Sidebar -->
