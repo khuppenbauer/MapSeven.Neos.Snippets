@@ -8,4 +8,4 @@
   requestFilter: 'isPackage("Flowpack.Snippets")'
   options:
     partialRootPaths:
-      'Flowpack.Snippets': 'resource://MapSeven.Markdown/Private/Partials'
+      'Flowpack.Snippets': 'resource://MapSeven.Neos.Snippets/Private/Partials'
