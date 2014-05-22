@@ -33,6 +33,13 @@ page = Page {
 				maximumLevels = 3
 				site = ${site}
 				providerName = ${Configuration.setting('MapSeven.Neos.FrontendUserManager.providerName')}
+				@cache {
+					mode = 'uncached'
+					context {
+						1 = 'node'
+						2 = 'documentNode'
+					}
+				}
 			}
 
 			login = MapSeven.Neos.FrontendUserManager:Login
@@ -44,6 +51,13 @@ page = Page {
 				maximumLevels = 1
 				startingPoint = ${q(site).children('fe-management').get(0)}
 				providerName = ${Configuration.setting('MapSeven.Neos.FrontendUserManager.providerName')}
+				@cache {
+					mode = 'uncached'
+					context {
+						1 = 'node'
+						2 = 'documentNode'
+					}
+				}
 			}
 		}
 
