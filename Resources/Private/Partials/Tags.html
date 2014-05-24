@@ -5,6 +5,7 @@
         <script>
             $(document).ready(function () <![CDATA[{]]>
                 $("#{property}").select2(<![CDATA[{]]>
+                    placeholder: "{label}",
                     createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
                     multiple: true,
                     data: [

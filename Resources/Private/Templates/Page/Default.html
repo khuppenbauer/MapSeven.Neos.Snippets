@@ -11,6 +11,7 @@
         <f:section name="stylesheets">
             <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/foundation.css', package: 'MapSeven.Neos.Snippets')}" media="all" />
             <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/foundation.custom.css', package: 'MapSeven.Neos.Snippets')}" media="all" />
         </f:section>
 
         <f:section name="scripts">
@@ -73,14 +74,18 @@
             <!-- Main Page Content and Sidebar -->
 
             <div class="row">
-                <h1>{node.properties.title}</h1>
-
+                <div class="small-12 columns"><h1>{node.properties.title}</h1></div>
                 <div class="small-9 columns" role="content">{content.main -> f:format.raw()}</div>
                 <div class="small-3 columns">{content.left -> f:format.raw()}</div>
             </div>
 
             <!-- End Main Content and Sidebar -->
-
+            <footer class="row">
+                <div class="small-12 columns">
+                    <hr/>
+                    <p></p>
+                </div>
+            </footer>
         </f:section>
         <f:section name="bodyScripts">
             <script src="{f:uri.resource(path: 'Scripts/foundation.min.js', package: 'MapSeven.Neos.Snippets')}"></script>

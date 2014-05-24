@@ -1,0 +1,8 @@
+.gist-file table {
+    border: 0;
+    margin-bottom: 0;
+}
+
+#wmd-button-bar-content button, #wmd-button-bar-content .button {
+    margin: 0 0 0.5rem;
+}
