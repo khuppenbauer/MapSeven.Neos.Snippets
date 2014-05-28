@@ -1,3 +1,7 @@
+pre {
+	margin-bottom: 1.25rem;
+}
+
 .gist-file table {
     border: 0;
     margin-bottom: 0;
