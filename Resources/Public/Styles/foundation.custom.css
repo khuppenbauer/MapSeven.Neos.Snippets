@@ -2,6 +2,10 @@ pre {
 	margin-bottom: 1.25rem;
 }
 
+pre code {
+    overflow: auto;
+}
+
 .gist-file table {
     border: 0;
     margin-bottom: 0;
