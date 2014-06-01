@@ -1,7 +1,7 @@
 {
     "name": "mapseven/neos-snippets",
     "type": "typo3-flow-site",
-    "description": "Add description here",
+    "description": "TYPO3 Neos Site Package for Snippets",
     "require": {
         "typo3/neos": "*",
         "typo3/neos-nodetypes": "*"

@@ -14,3 +14,19 @@ pre code {
 #wmd-button-bar-content button, #wmd-button-bar-content .button {
     margin: 0 0 0.5rem;
 }
+
+footer {
+    padding-top: 3rem;
+}
+
+footer ul {
+    list-style-type:none;
+}
+
+footer li {
+    display: inline-block;
+}
+
+footer a, footer a:hover, footer a:focus {
+    color: #000000;
+}

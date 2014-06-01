@@ -42,6 +42,13 @@ page = Page {
 				}
 			}
 
+			metaMenu = Menu {
+				entryLevel = 2
+				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/MetaMenu.html'
+				maximumLevels = 1
+				startingPoint = ${q(site).children('meta').get(0)}
+			}
+
 			login = MapSeven.Neos.FrontendUserManager:Login
 			logout = MapSeven.Neos.FrontendUserManager:Logout
 
