@@ -11,6 +11,10 @@ pre code {
     margin-bottom: 0;
 }
 
+.panel .label {
+    margin-bottom: 0;
+}
+
 #wmd-button-bar-content button, #wmd-button-bar-content .button {
     margin: 0 0 0.5rem;
 }
