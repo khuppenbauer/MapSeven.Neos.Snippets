@@ -34,3 +34,13 @@ footer li {
 footer a, footer a:hover, footer a:focus {
     color: #000000;
 }
+
+.accordion dd > a, .accordion dd > a:hover, .accordion dd > a:focus,
+.accordion dd.active > a, .accordion dd.active > a:hover, .accordion dd.active > a:focus {
+    background: none;
+    padding-left: 0;
+}
+
+#filter .button {
+    margin: 1.25rem 0 0;
+}
