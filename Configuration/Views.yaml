@@ -1,11 +1,12 @@
 -
-  requestFilter: 'isPackage("MapSeven.Neos.FrontendUserManager") && (isController("Login") || isController("Logout") || isController("Registration"))'
+  requestFilter: 'isPackage("Flowpack.Neos.FrontendUserManager") && (isController("Login") || isController("Logout") || isController("Registration"))'
   options:
     partialRootPaths:
-      'MapSeven.Neos.FrontendUserManager': 'resource://MapSeven.Neos.Snippets/Private/Partials'
+      'Flowpack.Neos.FrontendUserManager': 'resource://MapSeven.Neos.Snippets/Private/Partials'
     templateRootPathPattern: 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/User'
 -
-  requestFilter: 'isPackage("Flowpack.Snippets")'
+  requestFilter: 'isPackage("Flowpack.Snippets") && (isController("Post") || isController("Search"))'
   options:
     partialRootPaths:
       'Flowpack.Snippets': 'resource://MapSeven.Neos.Snippets/Private/Partials'
+    templateRootPathPattern: 'resource://MapSeven.Neos.Snippets/Private/Templates'

@@ -1,0 +1,34 @@
+{namespace snippets=Flowpack\Snippets\ViewHelpers}
+<f:if condition="{posts}">
+    <f:then>
+        <div class="widget widget_list">
+            <f:if condition="{title}"><h5 class="widget_title">{title}</h5></f:if>
+            <ul class="no-bullet">
+                <f:for each="{posts}" key="identifier" as="post" iteration="postIterator">
+                    <f:if condition="{post.url}">
+                        <f:then>
+                            <li><f:link.external uri="{post.url}" target="_blank">{post.title}</f:link.external></li>
+                        </f:then>
+                        <f:else>
+                            <li><f:link.action action="show" controller="post" arguments="{post: post}">{post.title}</f:link.action></li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+            </ul>
+        </div>
+    </f:then>
+    <f:else>
+        <f:if condition="{words}">
+            <script type="text/javascript">
+                var word_list = {words -> f:format.htmlentitiesDecode()}
+                $(function() {
+                    $("#my_favorite_latin_words").jQCloud(word_list);
+                });
+            </script>
+            <div class="widget widget_list">
+                <f:if condition="{title}"><h5 class="widget_title">{title}</h5></f:if>
+                <div id="my_favorite_latin_words" style="width: 100%; height: 200px;"></div>
+            </div>
+        </f:if>
+    </f:else>
+</f:if>

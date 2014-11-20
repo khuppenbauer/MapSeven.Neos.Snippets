@@ -1,0 +1,29 @@
+<f:flashMessages />
+<f:if condition="{arguments}">
+    <f:then>
+        <f:form class="custom form_container" action="authenticate" method="post" controller="Login" arguments="{arguments}" >
+            <div>
+                <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" type="text" placeholder="{f:translate(id: 'form.name', value: 'username')}" />
+            </div>
+            <div>
+                <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" type ="password" placeholder="{f:translate(id: 'form.password', value: 'password')}" />
+            </div>
+            <div class="cta_btn">
+                <f:form.submit value="{f:translate(id: 'form.submit.login', value: 'Login')}" class="button left" />
+            </div>
+        </f:form>
+    </f:then>
+    <f:else>
+        <f:form class="custom form_container" action="authenticate" method="post" controller="Login" >
+            <div>
+                <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" type="text" placeholder="{f:translate(id: 'form.name', value: 'username')}" />
+            </div>
+            <div>
+                <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" type ="password" placeholder="{f:translate(id: 'form.password', value: 'password')}" />
+            </div>
+            <div class="cta_btn">
+                <f:form.submit value="{f:translate(id: 'form.submit.login', value: 'Login')}" class="button left" />
+            </div>
+        </f:form>
+    </f:else>
+</f:if>

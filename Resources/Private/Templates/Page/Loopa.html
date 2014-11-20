@@ -1,0 +1,142 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace media=TYPO3\Media\ViewHelpers}
+<f:section name="body">
+
+    <f:render partial="Header" arguments="{parts: parts}" />
+
+    <!-- Content -->
+    <div class="content">
+        {content.main -> f:format.raw()}
+    </div>
+    <!-- /content -->
+
+    <!-- content Blog full-->
+    <div class="maincontent fullcontent nosidebar">
+        <div class="row pageview">
+            <!-- blog -->
+            <div class="large-12 columns blogview">
+                {content.main -> f:format.raw()}
+            </div>
+            <!-- /blog -->
+        </div>
+    </div>
+    <!-- /content -->
+
+    <!-- Content Portfolio-->
+    <div>
+        <div class="row fullcontent">
+            <div class="large-12 columns">
+                {content.main -> f:format.raw()}
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <!-- Content Portfolio 3-col left-->
+    <div class="maincontent leftsidebar">
+        <div class="row fullcontent">
+            <!-- left side bar -->
+            <div class="large-4 columns sidebar"></div>
+            <!-- end left side bar -->
+
+            <!-- Portfolio -->
+            <div class="large-8 columns"></div>
+            <!-- /Portfolio -->
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <!-- Content Portfolio 3-col right-->
+    <div class="maincontent">
+        <div class="row fullcontent">
+            <!-- Portfolio -->
+            <div class="large-8 columns"></div>
+            <!-- /Portfolio -->
+
+            <!-- left side bar -->
+            <div class="large-4 columns sidebar"></div>
+            <!-- end left side bar -->
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <!-- content Blog-->
+    <div class="maincontent fullcontent">
+        <div class="row pageview">
+            <!-- blog -->
+            <div class="large-8 columns blogview">
+                {content.main -> f:format.raw()}
+            </div>
+            <!-- /blog -->
+
+            <!-- Sidebar -->
+            <div class="large-4 columns">
+                {content.sidebar -> f:format.raw()}
+            </div>
+            <!-- /Sidebar -->
+        </div>
+    </div>
+    <!-- /content -->
+
+    <!-- content Blog leftsidebar-->
+    <div class="maincontent fullcontent leftsidebar">
+        <div class="row pageview">
+            <!-- Sidebar -->
+            <div class="large-4 columns">
+                {content.sidebar -> f:format.raw()}
+            </div>
+            <!-- /Sidebar -->
+
+            <!-- blog -->
+            <div class="large-8 columns blogview">
+                {content.main -> f:format.raw()}
+            </div>
+            <!-- /blog -->
+        </div>
+    </div>
+    <!-- /content -->
+
+    <!-- Content Blog Post-->
+    <div class="maincontent fullcontent">
+        <div class="row pageview">
+            <!-- Blog Post -->
+            <div class="large-2 columns side_info"></div>
+            <div class="large-6 columns blog_postview"></div>
+            <!-- /Blog Post -->
+
+            <!-- Sidebar -->
+            <div class="large-4 columns sidebar"></div>
+            <!-- /Sidebar -->
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <!-- Content Blog Post leftsidebar-->
+    <div class="maincontent fullcontent leftsidebar">
+        <div class="row pageview">
+            <!-- Sidebar -->
+            <div class="large-4 columns sidebar"></div>
+            <!-- /Sidebar -->
+
+            <!-- Blog Post -->
+            <div class="large-2 columns side_info"></div>
+            <div class="large-6 columns blog_postview"></div>
+            <!-- /Blog Post -->
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <!-- Content Blog Post nosidebar-->
+    <div class="maincontent fullcontent nosidebar">
+        <div class="row pageview">
+            <!-- Blog Post -->
+            <div class="large-2 columns side_info"></div>
+            <div class="large-10 columns blog_postview"></div>
+            <!-- /Blog Post -->
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <f:render partial="Footer" />
+
+</f:section>

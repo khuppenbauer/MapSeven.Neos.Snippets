@@ -1,11 +1,12 @@
 {namespace snippets=Flowpack\Snippets\ViewHelpers}
 <div class="row">
     <div class="small-12 columns">
-        <f:form.hidden id="{property}" name="{property}" style="width:300px;" value="{options -> snippets:tags()}" />
+        <snippets:form.multiselect id="{property}-{identifier}" property="{property}" placeholder="{label}" style="width:100%" errorClass="error" />
+
         <f:render partial="Errors" arguments="{property: property, object: object}" />
         <script>
             $(document).ready(function () <![CDATA[{]]>
-                $("#{property}").select2(<![CDATA[{]]>
+                $("#{property}-{identifier}").select2(<![CDATA[{]]>
                     placeholder: "{label}",
                     createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
                     multiple: true,

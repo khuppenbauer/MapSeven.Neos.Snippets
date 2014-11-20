@@ -1,0 +1,71 @@
+{namespace snippets=Flowpack\Snippets\ViewHelpers}
+<div class="row">
+    <div class="large-12 columns">
+        <h3>Add new Snippets</h3>
+    </div>
+</div>
+<snippets:security.ifAuthenticated providerName="FrontendProvider">
+    <f:then>
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="section-container tabs" data-section>
+                    <section data-section-region class="{snippets:panelState(property: 'newPost.postType', value: 'text')}">
+                        <p class="title" data-section-title><a href="#panel2nested1">Text</a></p>
+                        <div class="content" data-slug="nested1" data-section-content>
+                            <f:form action="create" object="{newPost}" objectName="newPost" method="POST" additionalAttributes="{role:'form'}">
+                                <f:flashMessages class="flashmessages" />
+                                <div class="tabs-content">
+                                    <br />
+                                    <f:form.hidden property="postType" value="text" />
+                                    <f:render partial="Textfield" arguments="{label: '{f:translate(id: \'form.title\', value: \'Title\')}', property: 'title', object: 'newPost'}" />
+                                    <f:render partial="Textarea" arguments="{label: '{f:translate(id: \'form.description\', value: \'Description\')}', property: 'description', object: 'newPost', rows:3}" />
+                                    <f:render partial="TextareaMarkdown" arguments="{label: '{f:translate(id: \'form.content\', value: \'Content\')}', property: 'content', object: 'newPost', rows: 20, preview: true}" />
+                                    <f:render partial="Checkbox" arguments="{label: '{f:translate(id: \'form.comment.check\', value: \'Comment\')}', property: 'options.comment', object: 'newPost'}" />
+                                    <f:render partial="Checkbox" arguments="{label: '{f:translate(id: \'form.share.check\', value: \'Share\')}', property: 'options.share', object: 'newPost'}" />
+                                    <f:render partial="Select" arguments="{label: '{f:translate(id: \'form.category\', value: \'Category\')}', property: 'category', object: 'newPost', properties: categories, identifier: 'text'}" />
+                                    <f:render partial="Tags" arguments="{label: '{f:translate(id: \'form.tags\', value: \'Tags\')}', property: 'tags', object: 'newPost', properties: tags, size: 3, identifier: 'text'}"/><br />
+                                    <div class="row">
+                                        <div class="small-12 columns">
+                                            <f:form.submit value="{f:translate(id: 'form.submit.snippet.create', value: 'Create Snippet')}" class="button" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:form>
+                        </div>
+                    </section>
+                    <section data-section-region class="{snippets:panelState(property: 'newPost.postType', value: 'link')}">
+                        <p class="title" data-section-title><a href="#panel2nested2">Link</a></p>
+                        <div class="content" data-slug="nested2" data-section-content>
+                            <f:form action="create" object="{newPost}" objectName="newPost" method="POST" additionalAttributes="{role:'form'}">
+                                <f:flashMessages class="flashmessages" />
+                                <div class="tabs-content">
+                                    <br />
+                                    <f:form.hidden property="postType" value="link" />
+                                    <f:render partial="Textfield" arguments="{label: '{f:translate(id: \'form.title\', value: \'Title\')}', property: 'title', object: 'newPost'}" />
+                                    <f:render partial="Textarea" arguments="{label: '{f:translate(id: \'form.description\', value: \'Description\')}', property: 'description', object: 'newPost', rows:3}" />
+                                    <f:render partial="Textfield" arguments="{label: '{f:translate(id: \'form.url\', value: \'Url\')}', property: 'url', object: 'newPost'}" />
+                                    <f:render partial="Select" arguments="{label: '{f:translate(id: \'form.category\', value: \'Category\')}', property: 'category', object: 'newPost', properties: categories, identifier: 'link'}" />
+                                    <f:render partial="Tags" arguments="{label: '{f:translate(id: \'form.tags\', value: \'Tags\')}', property: 'tags', object: 'newPost', properties: tags, size: 3, identifier: 'link'}"/><br />
+                                    <div class="row">
+                                        <div class="small-12 columns">
+                                            <f:form.submit value="{f:translate(id: 'form.submit.snippet.create', value: 'Create Snippet')}" class="button" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </f:then>
+    <f:else>
+        <div class="row">
+            <div class="small-6 columns">
+                <h5><f:translate id="snippet.login">Login to add a new Snippet</f:translate>:</h5>
+                <f:flashMessages />
+                <f:render partial="Login" />
+            </div>
+        </div>
+    </f:else>
+</snippets:security.ifAuthenticated>

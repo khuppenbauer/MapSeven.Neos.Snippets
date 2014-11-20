@@ -5,6 +5,11 @@ namespace: TypoScript=TYPO3.TypoScript
  */
 page = Page {
 	head {
+		meta = TypoScript:Template {
+			templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/Default.html'
+			sectionName = 'meta'
+		}
+
 		stylesheets.site = TypoScript:Template {
 			templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/Default.html'
 			sectionName = 'stylesheets'
@@ -15,61 +20,39 @@ page = Page {
 			sectionName = 'scripts'
 		}
 
-		meta = TypoScript:Template {
-			templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/Default.html'
-			sectionName = 'meta'
-		}
+		stylesheets.foundation >
 	}
 
 	body {
-		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/Default.html'
+		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/PageFull.html'
 		sectionName = 'body'
-		providerName = ${Configuration.setting('MapSeven.Neos.FrontendUserManager.providerName')}
-
 		parts {
 			mainMenu = Menu {
 				entryLevel = 1
 				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/MainMenu.html'
 				maximumLevels = 3
 				site = ${site}
-				providerName = ${Configuration.setting('MapSeven.Neos.FrontendUserManager.providerName')}
-				@cache {
-					mode = 'uncached'
-					context {
-						1 = 'node'
-						2 = 'documentNode'
-					}
-				}
 			}
-
-			metaMenu = Menu {
-				entryLevel = 2
-				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/MetaMenu.html'
-				maximumLevels = 1
-				startingPoint = ${q(site).children('meta').get(0)}
-			}
-
-			login = MapSeven.Neos.FrontendUserManager:Login
-			logout = MapSeven.Neos.FrontendUserManager:Logout
-
 			userMenu = Menu {
-				entryLevel = 2
 				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/UserMenu.html'
-				maximumLevels = 1
-				startingPoint = ${q(site).children('fe-management').get(0)}
-				providerName = ${Configuration.setting('MapSeven.Neos.FrontendUserManager.providerName')}
+				userObject = ${Configuration.setting('Flowpack.Neos.FrontendUserManager.userObject')}
+				providerName = ${Configuration.setting('Flowpack.Neos.FrontendUserManager.providerName')}
+				user = ${Authentication.identifier(this.userObject)}
+				isAuthenticated = ${Authentication.isAuthenticated(this.providerName)}
+				login = Flowpack.Neos.FrontendUserManager:Login
+				logout = Flowpack.Neos.FrontendUserManager:Logout
 				@cache {
-					mode = 'uncached'
-					context {
-						1 = 'node'
-						2 = 'documentNode'
+					entryIdentifier {
+						documentNode = ${documentNode}
+						domain = ${site.context.currentDomain}
+						authenticationIdentifier = ${Authentication.identifier(this.userObject, 'identifier')}
+						authenticated = ${Authentication.isAuthenticated(this.providerName)}
 					}
 				}
 			}
 		}
 
 		content {
-			// Default content section
 			main = PrimaryContent {
 				nodePath = 'main'
 			}
@@ -78,6 +61,67 @@ page = Page {
 		javascripts.site = TypoScript:Template {
 			templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/Default.html'
 			sectionName = 'bodyScripts'
+		}
+
+		javascripts.foundation >
+
+	}
+	@cache {
+		entryIdentifier {
+			authenticationIdentifier = ${Authentication.identifier(Configuration.setting('Flowpack.Neos.FrontendUserManager.userObject'), 'identifier')}
+			authenticated = ${Authentication.isAuthenticated(Configuration.setting('Flowpack.Neos.FrontendUserManager.providerName'))}
+		}
+	}
+}
+
+blogLeftsidebar < page
+blogLeftsidebar {
+	body {
+		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/BlogLeftsidebar.html'
+		content {
+			sidebar = PrimaryContent {
+				nodePath = 'sidebar'
+			}
+		}
+	}
+}
+
+blogRightsidebar < blogLeftsidebar
+blogRightsidebar {
+	body {
+		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/BlogRightsidebar.html'
+	}
+}
+
+pageLeftsidebar < blogLeftsidebar
+pageLeftsidebar {
+	body {
+		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/PageLeftsidebar.html'
+		content {
+			sidebar = PrimaryContent {
+				nodePath = 'sidebar'
+			}
+		}
+	}
+}
+
+pageRightsidebar < blogLeftsidebar
+pageRightsidebar {
+	body {
+		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/Page/PageRightsidebar.html'
+		content {
+			sidebar = PrimaryContent {
+				nodePath = 'sidebar'
+			}
+		}
+	}
+}
+
+root {
+	@cache {
+		entryIdentifier {
+			authenticationIdentifier = ${Authentication.identifier(Configuration.setting('Flowpack.Neos.FrontendUserManager.userObject'), 'identifier')}
+			authenticated = ${Authentication.isAuthenticated(Configuration.setting('Flowpack.Neos.FrontendUserManager.providerName'))}
 		}
 	}
 }

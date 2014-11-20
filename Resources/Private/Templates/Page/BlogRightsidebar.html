@@ -1,0 +1,25 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace media=TYPO3\Media\ViewHelpers}
+<f:section name="body">
+
+    <f:render partial="Header" arguments="{parts: parts}" />
+
+    <!-- Content Rightsidebar -->
+    <div class="maincontent fullcontent">
+        <div class="row pageview">
+            <!-- Blog -->
+                {content.main -> f:format.raw()}
+            <!-- /Blog -->
+
+            <!-- Sidebar -->
+            <div class="large-4 columns sidebar">
+                {content.sidebar -> f:format.raw()}
+            </div>
+            <!-- /Sidebar -->
+        </div>
+    </div>
+    <!-- /Content Rightsidebar -->
+
+    <f:render partial="Footer" />
+
+</f:section>

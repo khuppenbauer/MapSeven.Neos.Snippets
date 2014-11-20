@@ -1,12 +1,26 @@
-<f:flashMessages />
+<f:flashMessages as="flashMessages">
+    <div id="loginFlashMessage" class="reveal-modal small" data-reveal>
+        <f:for each="{flashMessages}" as="flashMessage">
+            {flashMessage}
+        </f:for>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <script>
+        $(document).ready(function ($) {
+            $('#loginFlashMessage').insertAfter('#data-reveal');
+            $('#loginFlashMessage').foundation('reveal', 'open', '');
+        });
+    </script>
+</f:flashMessages>
+
 <f:form action="authenticate" method="post">
-    <li class="has-form">
+    <span class="has-form">
         <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" type="text" placeholder="username" />
-    </li>
-    <li class="has-form">
+    </span>
+    <span class="has-form">
         <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" type ="password" placeholder="password" />
-    </li>
-    <li class="has-form">
-        <f:form.submit value="Login" class="button" />
-    </li>
+    </span>
+    <span class="has-form">
+        <f:form.submit value="Login" class="small button" />
+    </span>
  </f:form>

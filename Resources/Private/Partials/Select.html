@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="small-12 columns">
-        <f:form.select id="{property}" property="{property}" options="{properties}" optionLabelField="name" prependOptionLabel="- {label} -" class="select2" />
+    <div class="small-12 columns" style="height: 40px;">
+        <f:form.select id="{property}-{identifier}" property="{property}" options="{properties}" optionLabelField="name" prependOptionLabel="- {label} -" class="select2" errorClass="error" />
         <f:render partial="Errors" arguments="{property: property, object: object}" />
         <script>
-            $("#{property}").select2();
+            $("#{property}-{identifier}").select2();
         </script>
     </div>
 </div>

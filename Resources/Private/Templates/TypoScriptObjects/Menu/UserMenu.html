@@ -1,16 +1,15 @@
-{namespace feManager=MapSeven\Neos\FrontendUserManager\ViewHelpers}
-<f:for each="{items}" as="item" iteration="menuItemIterator">
-    <feManager:security.ifAuthenticated providerName="{providerName}">
-        <f:then>
-            <f:if condition="{item.node.properties.showAtAnyLogin}">
-                <f:render partial="UserMenuItem" arguments="{item: item}" />
-            </f:if>
-        </f:then>
+<f:if condition="{isAuthenticated}">
+    <f:then>
+        <li class="normal"><span class="normal">{user.name.alias}</span></li>
+    </f:then>
+</f:if>
+</li>
+<li class="has-form">
+    <f:if condition="{isAuthenticated}">
+        <f:then>{logout -> f:format.raw()}</f:then>
         <f:else>
-            <f:if condition="{item.node.properties.hideAtAnyLogin}">
-                <f:render partial="UserMenuItem" arguments="{item: item}" />
-            </f:if>
+            {login -> f:format.raw()}
         </f:else>
-    </feManager:security.ifAuthenticated>
-</f:for>
+    </f:if>
+</li>
 

@@ -1,9 +1,9 @@
-{namespace markdown=MapSeven\Markdown\ViewHelpers}
+{namespace snippets=Flowpack\Snippets\ViewHelpers}
 <div class="row">
     <div class="small-12 columns">
         <div id="wmd-button-bar-{property}">
             <div class="button-bar">
-                <f:for each="{markdown:configuration(settingPath: 'MapSeven.Markdown.buttons')}" as="buttonGroup">
+                <f:for each="{snippets:configuration(settingPath: 'Flowpack.Snippets.editorButtons')}" as="buttonGroup">
                     <ul class="button-group">
                         <f:for each="{buttonGroup}" as="button">
                             <f:if condition="{button.active}">
