@@ -3,71 +3,72 @@
 # to your pages. You can add as many areas as you like, still
 # only those that are rendered in your TypoScript and Template
 # are visible on your page.
----
+
 'Flowpack.Snippets:Snippet':
-  superTypes: ['TYPO3.Neos:Document']
+  superTypes:
+    - 'TYPO3.Neos:Document'
   childNodes:
-    'main':
+    main:
       type: 'TYPO3.Neos:ContentCollection'
-    'sidebar':
+    sidebar:
       type: 'TYPO3.Neos:ContentCollection'
   ui:
-    label: 'Snippet'
-    icon: 'icon-code'
+    label: Snippet
+    icon: icon-code
     position: 100
     inspector:
       groups:
         document:
-          label: 'Title'
+          label: Title
         layout:
-          label: 'Layout'
+          label: Layout
           position: 150
   properties:
     layout:
       type: string
       ui:
         label: 'Layout for this page only'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'layout'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          group: layout
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
-              'blogLeftsidebar':
-                label: 'leftsidebar'
-              'blogRightsidebar':
-                label: 'rightsidebar'
-
+              blogLeftsidebar:
+                label: leftsidebar
+              blogRightsidebar:
+                label: rightsidebar
 'Flowpack.Snippets:Page':
-  superTypes: ['TYPO3.Neos:Document']
+  superTypes:
+    - 'TYPO3.Neos:Document'
   childNodes:
-    'main':
+    main:
       type: 'TYPO3.Neos:ContentCollection'
-    'sidebar':
+    sidebar:
       type: 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Page with Sidebar'
-    icon: 'icon-file'
+    icon: icon-file
     position: 100
     inspector:
       groups:
         document:
-          label: 'Title'
+          label: Title
         layout:
-          label: 'Layout'
+          label: Layout
           position: 150
   properties:
     layout:
       type: string
       ui:
         label: 'Layout for this page only'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'layout'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          group: layout
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
-              'pageLeftsidebar':
-                label: 'leftsidebar'
-              'pageRightsidebar':
-                label: 'rightsidebar'
+              pageLeftsidebar:
+                label: leftsidebar
+              pageRightsidebar:
+                label: rightsidebar
