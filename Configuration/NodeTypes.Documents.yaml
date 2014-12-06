@@ -4,7 +4,14 @@
 # only those that are rendered in your TypoScript and Template
 # are visible on your page.
 
-'Flowpack.Snippets:Snippet':
+'TYPO3.Neos.NodeTypes:Page':
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+    footer:
+      type: 'TYPO3.Neos:ContentCollection'
+
+'MapSeven.Neos.Snippets:Snippet':
   superTypes:
     - 'TYPO3.Neos:Document'
   childNodes:
@@ -38,7 +45,8 @@
                 label: leftsidebar
               blogRightsidebar:
                 label: rightsidebar
-'Flowpack.Snippets:Page':
+
+'MapSeven.Neos.Snippets:Page':
   superTypes:
     - 'TYPO3.Neos:Document'
   childNodes:

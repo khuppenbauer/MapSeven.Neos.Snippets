@@ -1,0 +1,13 @@
+prototype(MapSeven.Neos.Snippets:Footer) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+		iterationName = 'linksIteration'
+	}
+
+	// Enhance image prototype for the carousel
+	prototype(MapSeven.Neos.Snippets:Link) {
+		templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/NodeTypes/Link.html'
+		iteration = ${linksIteration}
+	}
+}

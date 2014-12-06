@@ -1,17 +1,9 @@
+{namespace snippets=Flowpack\Snippets\ViewHelpers}
 <!-- .footer -->
 <div class="footer">
     <div class="row">
-        <div class="large-8 columns copyright">Proudly powered by <a href="http://www.neos.typo3.org" target="_blank">TYPO3 Neos</div>
-
-        <div class="large-4 columns social">
-            <ul class="large-block-grid-4">
-                <li><a href="https://twitter.com/khuppenbauer"><i class="icon-twitter-circled"></i></a></li>
-                <li><a href="https://github.com/khuppenbauer"><i class="icon-github-circled"></i></a></li>
-            </ul>
-        </div>
+        <div class="large-8 columns copyright">Proudly powered by <a href="http://www.neos.typo3.org" target="_blank">TYPO3 Neos</a></div>
+        {content.footer -> f:format.raw()}
     </div>
 </div>
 <!-- /.footer -->
-
-<div class="md-overlay"></div>
-<div id="data-reveal"></div>

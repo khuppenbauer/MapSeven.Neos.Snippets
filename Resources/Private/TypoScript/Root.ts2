@@ -1,3 +1,4 @@
+include: Library/NodeTypes.ts2
 namespace: TypoScript=TYPO3.TypoScript
 
 /**
@@ -55,6 +56,11 @@ page = Page {
 		content {
 			main = PrimaryContent {
 				nodePath = 'main'
+			}
+
+			footer = TYPO3.Neos:ContentCollection {
+				nodePath = ${q(site).find('footer').property('_path')}
+				collection = ${q(site).children('footer').children()}
 			}
 		}
 

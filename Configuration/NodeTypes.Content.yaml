@@ -1,0 +1,45 @@
+'MapSeven.Neos.Snippets:Footer':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Footer'
+    group: 'structure'
+    icon: 'icon-list-ul'
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+
+'MapSeven.Neos.Snippets:Link':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    label: 'Link'
+    group: 'general'
+    icon: 'icon-link'
+    inspector:
+      groups:
+        'link':
+          label: 'Link'
+  properties:
+    'url':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'url'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'link'
+    'label':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'label'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'link'
+    'icon':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'icon class'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'link'
