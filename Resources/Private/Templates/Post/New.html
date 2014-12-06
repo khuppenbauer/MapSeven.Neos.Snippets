@@ -13,7 +13,7 @@
                         <p class="title" data-section-title><a href="#panel2nested1">Text</a></p>
                         <div class="content" data-slug="nested1" data-section-content>
                             <f:form action="create" object="{newPost}" objectName="newPost" method="POST" additionalAttributes="{role:'form'}">
-                                <f:flashMessages class="flashmessages" />
+                                <f:render partial="FlashMessages" />
                                 <div class="tabs-content">
                                     <br />
                                     <f:form.hidden property="postType" value="text" />
@@ -37,7 +37,7 @@
                         <p class="title" data-section-title><a href="#panel2nested2">Link</a></p>
                         <div class="content" data-slug="nested2" data-section-content>
                             <f:form action="create" object="{newPost}" objectName="newPost" method="POST" additionalAttributes="{role:'form'}">
-                                <f:flashMessages class="flashmessages" />
+                                <f:render partial="FlashMessages" />
                                 <div class="tabs-content">
                                     <br />
                                     <f:form.hidden property="postType" value="link" />
@@ -63,7 +63,7 @@
         <div class="row">
             <div class="small-6 columns">
                 <h5><f:translate id="snippet.login">Login to add a new Snippet</f:translate>:</h5>
-                <f:flashMessages />
+                <f:render partial="FlashMessages" />
                 <f:render partial="Login" />
             </div>
         </div>

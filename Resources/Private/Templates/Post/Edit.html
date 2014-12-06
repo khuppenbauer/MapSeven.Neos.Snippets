@@ -7,7 +7,7 @@
     <div class="row">
         <div class="small-12 columns">
             <f:form action="update" object="{post}" objectName="post" method="POST" additionalAttributes="{role:'form'}">
-                <f:flashMessages class="flashmessages" />
+                <f:render partial="FlashMessages" />
                 <br />
                 <f:form.hidden property="postType" value="{post.postType}" />
                 <f:render partial="Textfield" arguments="{label: '{f:translate(id: \'form.title\', value: \'Title\')}', property: 'title', object: 'post'}" />

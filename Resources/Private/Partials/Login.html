@@ -1,4 +1,4 @@
-<f:flashMessages />
+<f:render partial="FlashMessages" />
 <f:if condition="{arguments}">
     <f:then>
         <f:form class="custom form_container" action="authenticate" method="post" controller="Login" arguments="{arguments}" >

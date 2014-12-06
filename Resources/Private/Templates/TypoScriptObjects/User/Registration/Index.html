@@ -1,15 +1,5 @@
-<f:flashMessages as="flashMessages">
-    <div class="row">
-        <div class="small-12 columns">
-            <div data-alert class="alert-box warning">
-                <f:for each="{flashMessages}" as="flashMessage">
-                    {flashMessage}
-                </f:for>
-            </div>
-        </div>
-    </div>
-</f:flashMessages>
 <f:form action="create" object="{registration}" objectName="registration" section="registration" method="POST" additionalAttributes="{role:'form'}">
+<f:render partial="FlashMessages" />
     <f:render partial="Textfield" arguments="{label: 'Username', property: 'username', object: 'registration'}" />
     <f:render partial="Password" arguments="{label: 'Password', property: 'password.0', object: 'registration'}" />
     <f:render partial="Password" arguments="{label: 'Password Repeat', property: 'password.1', object: 'registration'}" />

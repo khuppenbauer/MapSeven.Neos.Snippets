@@ -59,7 +59,7 @@
                 </f:then>
                 <f:else>
                     <h5><f:translate id="snippets.login">Login to see your Snippets</f:translate>:</h5>
-                    <f:flashMessages />
+                    <f:render partial="FlashMessages" />
                     <f:render partial="Login" />
                 </f:else>
             </snippets:security.ifAuthenticated>
