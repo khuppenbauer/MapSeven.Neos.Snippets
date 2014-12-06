@@ -51,6 +51,7 @@ page = Page {
 					}
 				}
 			}
+			login = Flowpack.Neos.FrontendUserManager:Login
 		}
 
 		content {

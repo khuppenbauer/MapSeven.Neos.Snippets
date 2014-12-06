@@ -1,3 +1,4 @@
-<f:form action="logout" method="post">
+{namespace user=Flowpack\Neos\FrontendUserManager\ViewHelpers}
+<user:form action="logout" actionUri="self" method="post">
     <f:form.submit value="Logout" class="small button" />
-</f:form>
+</user:form>

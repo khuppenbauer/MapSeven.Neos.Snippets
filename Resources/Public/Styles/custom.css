@@ -133,13 +133,21 @@ ul.cbp-tm-menu button, ul.cbp-tm-menu .button, ul.cbp-tm-menu form {
     margin:0;
 }
 
-.cbp-tm-menu > li > span.normal {
+.cbp-tm-menu > li > span.normal, .cbp-tm-menu.register > li > a > span.normal {
     color: #ccc;
     display: block;
-    font-size: 0.76471em;
     font-weight: 600;
-    display: block;
     text-transform: none;
+    margin: 0 0.5em;
+    line-height: 1.1em;
+}
+
+.cbp-tm-menu.user > li {
+    margin: 0;
+}
+
+nav .cbp-tm-menu.register a:hover:after {
+    background: none;
 }
 
 .cbp-tm-menu.left {
@@ -147,12 +155,24 @@ ul.cbp-tm-menu button, ul.cbp-tm-menu .button, ul.cbp-tm-menu form {
     width:66.6667%;
 }
 
-.cbp-tm-menu.right {
-    width:33.3333%;
+.cbp-tm-menu.user {
+    width:25%;
     padding: 1.3em 0 0 0;
 }
 
-.cbp-tm-menu.right input.button.small {
+.cbp-tm-menu.user.right {
+    width:33.3333%;
+    padding: 1.3em 0 0 0;
+    text-align: right;
+}
+
+.cbp-tm-menu.register {
+    width:8%;
+    padding: 1.3em 0 0 0;
+    text-align: right;
+}
+
+.cbp-tm-menu.user input.button.small {
     border: 1px solid #ae2941;
     height: 2.17647em;
     padding-top: 0.47059em;
@@ -160,7 +180,7 @@ ul.cbp-tm-menu button, ul.cbp-tm-menu .button, ul.cbp-tm-menu form {
     font-size: 0.82353em;
 }
 
-.cbp-tm-menu.right input.button:hover.small {
+.cbp-tm-menu.user input.button:hover.small {
     border: 1px solid #851f32;
 }
 
@@ -168,6 +188,7 @@ span.has-form {
     float:left;
     width: 33%;
     padding-left: 10px;
+    text-align: left;
 }
 
 span.has-form input {

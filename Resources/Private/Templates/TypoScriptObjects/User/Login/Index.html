@@ -1,3 +1,4 @@
+{namespace user=Flowpack\Neos\FrontendUserManager\ViewHelpers}
 <f:flashMessages as="flashMessages">
     <div id="loginFlashMessage" class="reveal-modal small" data-reveal>
         <f:for each="{flashMessages}" as="flashMessage">
@@ -5,15 +6,8 @@
         </f:for>
         <a class="close-reveal-modal">&#215;</a>
     </div>
-    <script>
-        $(document).ready(function ($) {
-            $('#loginFlashMessage').insertAfter('#data-reveal');
-            $('#loginFlashMessage').foundation('reveal', 'open', '');
-        });
-    </script>
 </f:flashMessages>
-
-<f:form action="authenticate" method="post">
+<user:form action="authenticate" actionUri="self" method="post">
     <span class="has-form">
         <input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" type="text" placeholder="username" />
     </span>
@@ -23,4 +17,4 @@
     <span class="has-form">
         <f:form.submit value="Login" class="small button" />
     </span>
- </f:form>
+ </user:form>

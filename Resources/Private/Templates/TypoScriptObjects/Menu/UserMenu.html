@@ -1,15 +1,16 @@
 <f:if condition="{isAuthenticated}">
     <f:then>
-        <li class="normal"><span class="normal">{user.name.alias}</span></li>
+        <ul id="cbp-tm-menu-user" class="cbp-tm-menu user right">
+            <li><span class="normal">{user.name.alias}</span></li>
+            <li>{logout -> f:format.raw()}</li>
+        </ul>
     </f:then>
+    <f:else>
+        <ul id="cbp-tm-menu-user" class="cbp-tm-menu user">
+            <li class="has-form">{login -> f:format.raw()}</li>
+        </ul>
+        <ul id="cbp-tm-menu-register" class="cbp-tm-menu register">
+            <li><a href="register.html"><span class="normal">Register</span></a></li>
+        </ul>
+    </f:else>
 </f:if>
-</li>
-<li class="has-form">
-    <f:if condition="{isAuthenticated}">
-        <f:then>{logout -> f:format.raw()}</f:then>
-        <f:else>
-            {login -> f:format.raw()}
-        </f:else>
-    </f:if>
-</li>
-

@@ -1,5 +1,6 @@
-<f:form action="create" object="{registration}" objectName="registration" section="registration" method="POST" additionalAttributes="{role:'form'}">
+{namespace user=Flowpack\Neos\FrontendUserManager\ViewHelpers}
 <f:render partial="FlashMessages" />
+<user:form action="create" actionUri="self" object="{registration}" objectName="registration" section="registration" method="POST" additionalAttributes="{role:'form'}">
     <f:render partial="Textfield" arguments="{label: 'Username', property: 'username', object: 'registration'}" />
     <f:render partial="Password" arguments="{label: 'Password', property: 'password.0', object: 'registration'}" />
     <f:render partial="Password" arguments="{label: 'Password Repeat', property: 'password.1', object: 'registration'}" />
@@ -7,4 +8,4 @@
     <f:render partial="Textfield" arguments="{label: 'Last name', property: 'lastName', object: 'registration'}" />
     <f:render partial="Textfield" arguments="{label: 'E-Mail', property: 'email', object: 'registration'}" />
     <f:form.submit value="Create Account" class="button" />
-</f:form>
+</user:form>

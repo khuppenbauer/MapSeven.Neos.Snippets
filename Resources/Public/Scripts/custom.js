@@ -11,6 +11,8 @@ $(document).ready(function ($) {
         $('.toggle-sorting').toggle();
         $('div[data-toggle="sorting"] i').toggleClass('fa-caret-right fa-caret-down', 'switch');
     }
+    $('#loginFlashMessage').foundation('reveal', 'open', '');
+
 });
 $('a.section').click(function(e) {
     e.preventDefault();
