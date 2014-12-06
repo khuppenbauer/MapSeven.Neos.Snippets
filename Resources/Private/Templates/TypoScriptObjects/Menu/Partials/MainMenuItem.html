@@ -1,11 +1,8 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
-<li class="{item.state}{f:if(condition: item.subItems, then: ' has-dropdown')}">
+<li>
+    <neos:link.node node="{item.node}" class="{item.state}">{item.label}</neos:link.node>
     <f:if condition="{item.subItems}">
-        <f:then><a href="{neos:uri.node(node:item.node)}">{item.label}</a></f:then>
-        <f:else><neos:link.node node="{item.node}" class="{item.state}">{item.label}</neos:link.node></f:else>
-    </f:if>
-    <f:if condition="{item.subItems}">
-        <ul class="dropdown">
+        <ul class="cbp-tm-submenu">
             <f:render partial="MainMenuItemList" arguments="{items: item.subItems}" />
         </ul>
     </f:if>
