@@ -33,6 +33,7 @@
   properties:
     layout:
       type: string
+      defaultValue: 'blogLeftsidebar'
       ui:
         label: 'Layout for this page only'
         reloadIfChanged: true
@@ -68,6 +69,7 @@
   properties:
     layout:
       type: string
+      defaultValue: 'pageLeftsidebar'
       ui:
         label: 'Layout for this page only'
         reloadIfChanged: true
