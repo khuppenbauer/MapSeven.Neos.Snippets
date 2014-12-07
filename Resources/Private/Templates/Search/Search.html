@@ -1,200 +1,195 @@
 {namespace snippets=Flowpack\Snippets\ViewHelpers}
-<div class="large-8 columns blogview">
-    <div class="row">
-        <div class="large-12 columns">
-            <h3>Snippets</h3>
-        </div>
+<div class="row">
+    <div class="large-12 columns">
+        <h3>Snippets</h3>
     </div>
+</div>
 
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="active content panel">
+<div class="row">
+    <div class="large-12 columns">
+        <div class="active content panel">
 
-                <f:form action="search" id="search" name="search" method="POST" object="{search}" objectName="search">
+            <f:form action="search" id="search" name="search" method="POST" object="{search}" objectName="search">
 
-                    <f:form.hidden property="currentPage" id="currentpage" class="jq-hidden"/>
-                    <f:form.hidden property="filter.author" id="author" class="jq-hidden"/>
-                    <f:form.hidden property="sortField" id="sortfield"/>
+                <f:form.hidden property="currentPage" id="currentpage" class="jq-hidden"/>
+                <f:form.hidden property="filter.author" id="author" class="jq-hidden"/>
+                <f:form.hidden property="sortField" id="sortfield"/>
 
-                    <div class="row">
-                        <div class="large-6 columns">
-                            <div class="row collapse">
-                                <div class="large-10 columns">
-                                    <f:form.textfield property="query" id="query" placeholder="{f:translate(id: 'search.placeholder', value: 'search')}"/>
-                                </div>
-                                <div class="large-2 columns">
-                                    <f:form.button value="Search" class="button postfix">
-                                        <f:translate id="search.go">Go</f:translate>
-                                    </f:form.button>
-                                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-10 columns">
+                                <f:form.textfield property="query" id="query" placeholder="{f:translate(id: 'search.placeholder', value: 'search')}"/>
+                            </div>
+                            <div class="large-2 columns">
+                                <f:form.button value="Search" class="button postfix">
+                                    <f:translate id="search.go">Go</f:translate>
+                                </f:form.button>
                             </div>
                         </div>
                     </div>
-                    <f:if condition="{totalHits} > 0">
-                        <div data-toggle="filter"><i class="fa fa-caret-right"></i> Filter</div>
-                        <div class="row toggle-filter inactive">
-                            <f:for each="{aggregations}" key="aggregationName" as="aggregation">
+                </div>
+                <f:if condition="{totalHits} > 0">
+                    <div data-toggle="filter"><i class="fa fa-caret-right"></i> Filter</div>
+                    <div class="row toggle-filter inactive">
+                        <f:for each="{aggregations}" key="aggregationName" as="aggregation">
+                            <div class="large-3 columns">
+                                <f:form.select id="{aggregationName}" property="filter.{aggregationName}"
+                                               options="{aggregation}"
+                                               prependOptionLabel="- {f:translate(id: aggregationName)} -"
+                                               class="select2 large-12 jq-select"/>
+                                <script>
+                                    $("#{aggregationName}").select2();
+                                </script>
+                            </div>
+                        </f:for>
+                    </div>
+                    <div class="row toggle-filter inactive">
+                        <br />
+                        <div class="large-3 columns">
+                            <a href="#" class="jq-filter-reset button small">
+                                <i class="fa fa-times fa-fw"></i>
+                                <f:translate id="search.filter.reset">reset all filter</f:translate>
+                            </a>
+                        </div>
+                    </div>
+                    <f:if condition="{sortings}">
+                        <div data-toggle="sorting"><i class="fa fa-caret-right"></i> Sorting</div>
+                        <div class="row toggle-sorting inactive">
+                            <f:for each="{sortings}" as="sorting">
                                 <div class="large-3 columns">
-                                    <f:form.select id="{aggregationName}" property="filter.{aggregationName}"
-                                                   options="{aggregation}"
-                                                   prependOptionLabel="- {f:translate(id: aggregationName)} -"
-                                                   class="select2 large-12 jq-select"/>
-                                    <script>
-                                        $("#{aggregationName}").select2();
-                                    </script>
+                                    <a href="#" class="button<f:if condition="{sortField} == {sorting.key}"><f:then> disabled</f:then></f:if>" data-sortField="{sorting.key}"><i class="fa fa-{sorting.icon} fa-fw"></i> {sorting.name}</a>
                                 </div>
                             </f:for>
                         </div>
-                        <div class="row toggle-filter inactive">
-                            <br />
-                            <div class="large-3 columns">
-                                <a href="#" class="jq-filter-reset button small">
-                                    <i class="fa fa-times fa-fw"></i>
-                                    <f:translate id="search.filter.reset">reset all filter</f:translate>
-                                </a>
-                            </div>
-                        </div>
-                        <f:if condition="{sortings}">
-                            <div data-toggle="sorting"><i class="fa fa-caret-right"></i> Sorting</div>
-                            <div class="row toggle-sorting inactive">
-                                <f:for each="{sortings}" as="sorting">
-                                    <div class="large-3 columns">
-                                        <a href="#" class="button<f:if condition="{sortField} == {sorting.key}"><f:then> secondary</f:then></f:if>" data-sortField="{sorting.key}"><i class="fa fa-{sorting.icon} fa-fw"></i> {sorting.name}</a>
-                                    </div>
-                                </f:for>
-                            </div>
-                        </f:if>
                     </f:if>
-                </f:form>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-12 columns">
-            <f:if condition="{totalHits} > 0">
-                <f:then>
-                    <f:translate id="search.show" arguments="{0: first, 1: last, 2: totalHits}">Show {0} - {1} of {2}</f:translate>
-                </f:then>
-                <f:else>
-                    <f:translate id="search.noPosts">No Posts found</f:translate>
-                </f:else>
-            </f:if>
-        </div>
-    </div>
-
-    <f:for each="{posts}" key="identifier" as="post" iteration="postIterator">
-        <article class="blogview_item<f:if condition="{user} == {post.author}"><f:then> active</f:then></f:if>">
-            <header>
-                <h4>
-                    <f:if condition="{post.url}">
-                        <f:then>
-                            <f:link.external uri="{post.url}" target="_blank">{post.title}</f:link.external>
-                        </f:then>
-                        <f:else>
-                            <f:link.action action="show" controller="post" arguments="{post: post}">{post.title}</f:link.action>
-                        </f:else>
-                    </f:if>
-                </h4>
-            </header>
-            <f:if condition="{user} == {post.author}">
-                <ul class="no-bullet edit-post">
-                    <li>
-                        <f:link.action action="edit" arguments="{post: post}" controller="Post" class="button small"><i class="fa fa-pencil fa-fw"></i></f:link.action>
-                    </li>
-                    <li>
-                        <a href="#" data-reveal-id="modal-delete-{identifier}" class="button small"><i class="fa fa-trash-o fa-fw"></i></a>
-                        <div id="modal-delete-{identifier}" class="reveal-modal small" data-reveal>
-                            <h4><f:translate id="post.delete">Delete Post</f:translate></h4>
-                            <p><f:translate id="post.delete.request" arguments="{0: post.title}">Do you really want to delete post "{0}"?</f:translate></p>
-                            <f:form action="delete" arguments="{post: post}" controller="Post">
-                                <button type="submit" title="Delete Post">
-                                    <f:translate id="post.delete.confirm">Yes, delete the post</f:translate>
-                                </button>
-                            </f:form>
-                            <a class="close-reveal-modal">&#215;</a>
-                        </div>
-                    </li>
-                </ul>
-            </f:if>
-            <div class="blogview_content">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <ul class="no-bullet">
-                            <li class="left">
-                                <time datetime="{f:format.date(date: post.date)}">
-                                    <i class="fa fa-calendar fa-fw"></i><f:translate id="post.date" arguments="{0: post.date}"><![CDATA[{0,datetime,date,short}]]</f:translate>
-                                </time>
-                            </li>
-                            <li class="left">
-                                <f:if condition="{post.author.name.alias}">
-                                    <i class="fa fa-user fa-fw"></i><f:link.action action="search" arguments="{author: post.author.name.alias}" controller="Search">{post.author.name.alias}</f:link.action>
-                                </f:if>
-                            </li>
-                            <li class="left">
-                                <i class="fa fa-folder-open fa-fw"></i><f:link.action action="search" arguments="{category: post.category.name}" controller="Search">{post.category.name}</f:link.action>
-                            </li>
-                            <li class="left">
-                                <i class="fa fa-tags fa-fw"></i>
-                                <f:for each="{post.tags}" as="tag" iteration="iterator">
-                                    <f:link.action action="search" arguments="{tag: tag.name}" controller="Search">{tag.name}{f:if(condition:iterator.isLast, then: '', else: ',')}</f:link.action>
-                                </f:for>
-                            </li>
-                            <f:if condition="{post.content}">
-                                <li class="left">
-                                    <i class="fa fa-comments fa-fw"></i>
-                                    <f:link.action action="show" controller="post" arguments="{post: post}" section="comments">{post.numberOfComments}</f:link.action>
-                                </li>
-                                <li class="left">
-                                    <i class="fa fa-eye fa-fw"></i>{post.views}
-                                </li>
-                                <li class="left">
-                                    <i class="fa fa-thumbs-up fa-fw"></i>{post.numberOfVotes}
-                                </li>
-                                <li class="left">
-                                    <i class="fa fa-star{f:if(condition:post.favorite, then: '', else: '-o')} fa-fw"></i>{post.numberOfFavorites}
-                                </li>
-                            </f:if>
-                        </ul>
-                    </div>
-                </div>
-                <f:if condition="{post.description}">
-                    <f:then><p>{post.description}</p></f:then>
-                    <f:else><br /></f:else>
                 </f:if>
+            </f:form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <f:if condition="{totalHits} > 0">
+            <f:then>
+                <f:translate id="search.show" arguments="{0: first, 1: last, 2: totalHits}">Show {0} - {1} of {2}</f:translate>
+            </f:then>
+            <f:else>
+                <f:translate id="search.noPosts">No Posts found</f:translate>
+            </f:else>
+        </f:if>
+    </div>
+</div>
+
+<f:for each="{posts}" key="identifier" as="post" iteration="postIterator">
+    <article class="blogview_item<f:if condition="{user} == {post.author}"><f:then> active</f:then></f:if>">
+        <header>
+            <h4>
                 <f:if condition="{post.url}">
-                    <div class="panel">
-                        <f:translate id="post.origin">Originally Posted on</f:translate>
-                        <f:link.external uri="{post.providerUrl}" target="_blank"><img src="{post.providerIcon}"/>
-                            {post.providerName}
-                        </f:link.external>
-                        <br/><br/>
-                        <f:link.external uri="{post.url}" target="_blank"><i class="fa fa-external-link-square"></i>
-                            {post.url}
-                        </f:link.external>
-                        <br/><br/>
-                        <f:if condition="{post.code}">
-                            <f:if condition="{post.code -> snippets:strpos(needle: 'iframe')}">
-                                <a href="#" data-reveal-id="modal-preview-{identifier}" class="label" data-reveal>
-                                    <f:translate id="post.preview">Preview</f:translate>
-                                </a>
-
-                                <div id="modal-preview-{identifier}" class="reveal-modal medium">
-                                    <h4>{post.title}</h4>
-
-                                    <div class="flex-video">
-                                        <f:format.raw>{post.code}</f:format.raw>
-                                    </div>
-                                    <a class="close-reveal-modal">&#215;</a>
-                                </div>
-                            </f:if>
-                        </f:if>
-                    </div>
+                    <f:then>
+                        <f:link.external uri="{post.url}" target="_blank">{post.title}</f:link.external>
+                    </f:then>
+                    <f:else>
+                        <f:link.action action="show" controller="post" arguments="{post: post}">{post.title}</f:link.action>
+                    </f:else>
                 </f:if>
+            </h4>
+        </header>
+        <f:if condition="{user} == {post.author}">
+            <ul class="no-bullet edit-post">
+                <li>
+                    <f:link.action action="edit" arguments="{post: post}" controller="Post" class="button small"><i class="fa fa-pencil fa-fw"></i></f:link.action>
+                </li>
+                <li>
+                    <a href="#" data-reveal-id="modal-delete-{identifier}" class="button small"><i class="fa fa-trash-o fa-fw"></i></a>
+                    <div id="modal-delete-{identifier}" class="reveal-modal small" data-reveal>
+                        <h4><f:translate id="post.delete">Delete Post</f:translate></h4>
+                        <p><f:translate id="post.delete.request" arguments="{0: post.title}">Do you really want to delete post "{0}"?</f:translate></p>
+                        <f:form action="delete" arguments="{post: post}" controller="Post">
+                            <button type="submit" title="Delete Post">
+                                <f:translate id="post.delete.confirm">Yes, delete the post</f:translate>
+                            </button>
+                        </f:form>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </li>
+            </ul>
+        </f:if>
+        <div class="blogview_content">
+            <div class="row">
+                <div class="large-12 columns">
+                    <ul class="no-bullet">
+                        <li class="left">
+                            <time datetime="{f:format.date(date: post.date)}">
+                                <i class="fa fa-calendar fa-fw"></i><f:translate id="post.date" arguments="{0: post.date}"><![CDATA[{0,datetime,date,short}]]</f:translate>
+                            </time>
+                        </li>
+                        <li class="left">
+                            <f:if condition="{post.author.name.alias}">
+                                <i class="fa fa-user fa-fw"></i><f:link.action action="search" arguments="{author: post.author.name.alias}" controller="Search">{post.author.name.alias}</f:link.action>
+                            </f:if>
+                        </li>
+                        <li class="left">
+                            <i class="fa fa-folder-open fa-fw"></i><f:link.action action="search" arguments="{category: post.category.name}" controller="Search">{post.category.name}</f:link.action>
+                        </li>
+                        <li class="left">
+                            <i class="fa fa-tags fa-fw"></i>
+                            <f:for each="{post.tags}" as="tag" iteration="iterator">
+                                <f:link.action action="search" arguments="{tag: tag.name}" controller="Search">{tag.name}{f:if(condition:iterator.isLast, then: '', else: ',')}</f:link.action>
+                            </f:for>
+                        </li>
+                        <f:if condition="{post.content}">
+                            <li class="left">
+                                <i class="fa fa-comments fa-fw"></i>
+                                <f:link.action action="show" controller="post" arguments="{post: post}" section="comments">{post.numberOfComments}</f:link.action>
+                            </li>
+                            <li class="left">
+                                <i class="fa fa-eye fa-fw"></i>{post.views}
+                            </li>
+                            <li class="left">
+                                <i class="fa fa-thumbs{f:if(condition:post.upVote, then: '', else: '-o')}-up fa-fw"></i>{post.numberOfVotes}
+                            </li>
+                            <li class="left">
+                                <i class="fa fa-star{f:if(condition:post.favorite, then: '', else: '-o')} fa-fw"></i>{post.numberOfFavorites}
+                            </li>
+                        </f:if>
+                    </ul>
+                </div>
             </div>
-        </article>
-    </f:for>
+            <f:if condition="{post.description}">
+                <f:then><p>{post.description}</p></f:then>
+                <f:else><br /></f:else>
+            </f:if>
+            <f:if condition="{post.url}">
+                <div class="panel">
+                    <f:translate id="post.origin">Originally Posted on</f:translate>
+                    <f:link.external uri="{post.url}" target="_blank"><img src="{post.providerIcon}"/>
+                        {post.providerName}
+                    </f:link.external>
+                    <f:if condition="{post.code}">
+                        <br /><br />
+                        <f:if condition="{post.code -> snippets:strpos(needle: 'iframe')}">
+                            <a href="#" data-reveal-id="modal-preview-{identifier}" class="label" data-reveal>
+                                <f:translate id="post.preview">Preview</f:translate>
+                            </a>
 
-    <f:if condition="{pagination.numberOfPages} > 1">
+                            <div id="modal-preview-{identifier}" class="reveal-modal medium">
+                                <h4>{post.title}</h4>
+
+                                <div class="flex-video">
+                                    <f:format.raw>{post.code}</f:format.raw>
+                                </div>
+                                <a class="close-reveal-modal">&#215;</a>
+                            </div>
+                        </f:if>
+                    </f:if>
+                </div>
+            </f:if>
+        </div>
+    </article>
+</f:for>
+
+<f:if condition="{pagination.numberOfPages} > 1">
     <div class="pager">
         <ul class="pagination">
             <f:if condition="{pagination.previousPage}">
@@ -239,7 +234,6 @@
         </ul>
     </div>
 </f:if>
-</div>
 
 <!-- Reveal Modals end -->
 <script>

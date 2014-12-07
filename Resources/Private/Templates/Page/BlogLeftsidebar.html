@@ -8,13 +8,15 @@
     <div class="maincontent fullcontent leftsidebar">
         <div class="row pageview">
             <!-- Sidebar -->
-            <div class="large-4 columns sidebar">
+            <div class="large-4 columns">
                 {content.sidebar -> f:format.raw()}
             </div>
             <!-- /Sidebar -->
 
             <!-- Blog -->
-            {content.main -> f:format.raw()}
+            <div class="large-8 columns blogview">
+                {content.main -> f:format.raw()}
+            </div>
             <!-- /Blog -->
         </div>
     </div>
