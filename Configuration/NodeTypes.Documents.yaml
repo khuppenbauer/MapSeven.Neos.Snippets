@@ -10,7 +10,6 @@
       type: 'TYPO3.Neos:ContentCollection'
     footer:
       type: 'TYPO3.Neos:ContentCollection'
-
 'MapSeven.Neos.Snippets:Snippet':
   superTypes:
     - 'TYPO3.Neos:Document'
@@ -33,7 +32,7 @@
   properties:
     layout:
       type: string
-      defaultValue: 'blogLeftsidebar'
+      defaultValue: blogLeftsidebar
       ui:
         label: 'Layout for this page only'
         reloadIfChanged: true
@@ -46,7 +45,6 @@
                 label: leftsidebar
               blogRightsidebar:
                 label: rightsidebar
-
 'MapSeven.Neos.Snippets:Page':
   superTypes:
     - 'TYPO3.Neos:Document'
@@ -69,7 +67,7 @@
   properties:
     layout:
       type: string
-      defaultValue: 'pageLeftsidebar'
+      defaultValue: pageLeftsidebar
       ui:
         label: 'Layout for this page only'
         reloadIfChanged: true
