@@ -37,7 +37,7 @@
     <script src="{f:uri.resource(path: 'Scripts/grid.js', package: 'MapSeven.Neos.Snippets')}"></script>
     <script src="{f:uri.resource(path: 'Scripts/custom.js', package: 'MapSeven.Neos.Snippets')}"></script>
 
-    <f:security.ifAccess resource="TYPO3_Neos_Backend_GeneralAccess">
+    <f:security.ifAccess privilegeTarget="TYPO3_Neos_Backend_GeneralAccess">
         <f:then></f:then>
         <f:else>
             <script>
