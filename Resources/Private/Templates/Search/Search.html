@@ -58,7 +58,7 @@
                         <div class="row toggle-sorting inactive">
                             <f:for each="{sortings}" as="sorting">
                                 <div class="large-3 columns">
-                                    <a href="#" class="button<f:if condition="{sortField} == {sorting.key}"><f:then> disabled</f:then></f:if>" data-sortField="{sorting.key}"><i class="fa fa-{sorting.icon} fa-fw"></i> {sorting.name}</a>
+                                    <a href="#" class="button small<f:if condition="{sortField} == {sorting.key}"><f:then> disabled</f:then></f:if>" data-sortField="{sorting.key}"><i class="fa fa-{sorting.icon} fa-fw"></i> {sorting.name}</a>
                                 </div>
                             </f:for>
                         </div>

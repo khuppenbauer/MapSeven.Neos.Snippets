@@ -1,5 +1,5 @@
 {namespace snippets=Flowpack\Snippets\ViewHelpers}
-<h1>{post.title}</h1>
+<h2>{post.title}</h2>
 <div class="row">
     <div class="small-12 columns">
         <ul class="no-bullet">
@@ -40,9 +40,9 @@
         <ul class="no-bullet social_btn">
             <snippets:security.ifAuthenticated providerName="FrontendProvider">
                 <f:then>
-                    <li><a href="#"><i class="jq-up fa fa-thumbs{f:if(condition:post.upVote, then: '', else: '-o')}-up" style="cursor: pointer" data-post="{post -> f:format.identifier()}"></i> <span class="jq-upVotes">{post.numberOfUpVotes}</span></a></li>
-                    <li><a href="#"><i class="jq-down fa fa-thumbs{f:if(condition:post.downVote, then: '', else: '-o')}-down" style="cursor: pointer"  data-post="{post -> f:format.identifier()}"></i> <span class="jq-downVotes">{post.numberOfDownVotes}</span></a></li>
-                    <li><a href="#"><i class="jq-favor fa fa-star{f:if(condition:post.favorite, then: '', else: '-o')}" style="cursor:pointer" data-post="{post -> f:format.identifier()}"></i> <span class="jq-favorites">{post.numberOfFavorites}</span></a></li>
+                    <li><a href="#" class="button secondary"><i class="jq-up fa fa-thumbs{f:if(condition:post.upVote, then: '', else: '-o')}-up" style="cursor: pointer" data-post="{post -> f:format.identifier()}"></i> <span class="jq-upVotes">{post.numberOfUpVotes}</span></a></li>
+                    <li><a href="#" class="button secondary"><i class="jq-down fa fa-thumbs{f:if(condition:post.downVote, then: '', else: '-o')}-down" style="cursor: pointer"  data-post="{post -> f:format.identifier()}"></i> <span class="jq-downVotes">{post.numberOfDownVotes}</span></a></li>
+                    <li><a href="#" class="button secondary"><i class="jq-favor fa fa-star{f:if(condition:post.favorite, then: '', else: '-o')}" style="cursor:pointer" data-post="{post -> f:format.identifier()}"></i> <span class="jq-favorites">{post.numberOfFavorites}</span></a></li>
                 </f:then>
                 <f:else>
                     <li><a href="#"><i class="jq-up fa fa-thumbs-o-up" style="cursor: pointer"></i> <span class="jq-upVotes">{post.numberOfUpVotes}</span></a></li>
