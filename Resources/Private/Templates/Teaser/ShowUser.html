@@ -1,0 +1,16 @@
+{namespace snippets=Flowpack\Snippets\ViewHelpers}
+<f:if condition="{post}">
+    <div class="widget widget_list row" style="margin-bottom: 1.17647em;">
+        <f:if condition="{title}"><h5 class="widget_title">{title}</h5></f:if>
+        <div class="small-4 columns" style="padding-right: 0;"><img alt="avatar" src="http://www.gravatar.com/avatar?d=mm" class="avatar" style="float: left;"></div>
+        <div class="small-8 columns" style="padding-left: 0;">
+            {post.author.name.alias}
+            <f:if condition="{user}">
+                <a href="#" class="jq-follow-user" data-user="{post.author -> f:format.identifier()}"><i class="icon-{f:if(condition:post.author.followed, then: 'minus', else: 'plus')}-squared"></i></a>
+            </f:if>
+            <br /><br />
+            <f:link.action action="search" arguments="{author: post.author.name.alias}" controller="Search">{post.author.numberOfPosts} Snippets</f:link.action><br />
+            {post.author.numberOfFollowers} Follower
+        </div>
+    </div>
+</f:if>

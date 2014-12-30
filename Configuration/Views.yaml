@@ -5,7 +5,7 @@
       'Flowpack.Neos.FrontendUserManager': 'resource://MapSeven.Neos.Snippets/Private/Partials'
     templateRootPathPattern: 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/User'
 -
-  requestFilter: 'isPackage("Flowpack.Snippets") && (isController("Post") || isController("Search"))'
+  requestFilter: 'isPackage("Flowpack.Snippets") && (isController("Post") || isController("Search") || isController("Teaser"))'
   options:
     partialRootPaths:
       'Flowpack.Snippets': 'resource://MapSeven.Neos.Snippets/Private/Partials'
