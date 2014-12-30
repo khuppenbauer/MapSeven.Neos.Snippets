@@ -4,18 +4,18 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
 ;( function( window ) {
-     
+
     'use strict';
 
     var document = window.document,
         docElem = document.documentElement;
     function extend( a, b ) {
-        for( var key in b ) { 
+        for( var key in b ) {
             if( b.hasOwnProperty( key ) ) {
                 a[key] = b[key];
             }
@@ -41,15 +41,15 @@
 
     // http://snipplr.com/view.php?codeview&id=5259
 
-    function isMouseLeaveOrEnter(e, handler) { 
-        if (e.type != 'mouseout' && e.type != 'mouseover') return false; 
-        var reltg = e.relatedTarget ? e.relatedTarget : 
-        e.type == 'mouseout' ? e.toElement : e.fromElement; 
-        while (reltg && reltg != handler) reltg = reltg.parentNode; 
-        return (reltg != handler); 
+    function isMouseLeaveOrEnter(e, handler) {
+        if (e.type != 'mouseout' && e.type != 'mouseover') return false;
+        var reltg = e.relatedTarget ? e.relatedTarget :
+        e.type == 'mouseout' ? e.toElement : e.fromElement;
+        while (reltg && reltg != handler) reltg = reltg.parentNode;
+        return (reltg != handler);
     }
 
-    function cbpTooltipMenu( el, options ) {    
+    function cbpTooltipMenu( el, options ) {
         this.el = el;
         this.options = extend( this.defaults, options );
         this._init();
@@ -67,7 +67,7 @@
         },
 
         _initEvents : function() {
-             
+
             var self = this;
             Array.prototype.slice.call( this.menuItems ).forEach( function( el, i ) {
                 var trigger = el.querySelector( 'a' );
@@ -158,3 +158,4 @@
 } )( window );
 
 var menu = new cbpTooltipMenu( document.getElementById( 'cbp-tm-menu' ) );
+var usermenu = new cbpTooltipMenu( document.getElementById( 'cbp-tm-menu-user' ) );

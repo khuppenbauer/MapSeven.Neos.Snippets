@@ -142,6 +142,10 @@ ul.cbp-tm-menu button, ul.cbp-tm-menu .button, ul.cbp-tm-menu form {
     line-height: 1.1em;
 }
 
+.cbp-tm-menu.user > li > span.normal {
+    margin: 0 0.7em 1.1em 0.7em;
+}
+
 .cbp-tm-menu.user > li {
     margin: 0;
 }

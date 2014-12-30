@@ -2,7 +2,16 @@
 <!-- .footer -->
 <div class="footer">
     <div class="row">
-        <div class="large-8 columns copyright">Proudly powered by <a href="http://www.neos.typo3.org" target="_blank">TYPO3 Neos</a></div>
+        <div class="large-8 columns copyright">
+            <div class="row">
+                <div class="large-6 columns">
+                    Proudly powered by <a href="http://www.neos.typo3.org" target="_blank">TYPO3 Neos</a>
+                </div>
+                <div class="large-6 columns text-right">
+                    {parts.metaMenu -> f:format.raw()}
+                </div>
+            </div>
+        </div>
         {content.footer -> f:format.raw()}
     </div>
 </div>

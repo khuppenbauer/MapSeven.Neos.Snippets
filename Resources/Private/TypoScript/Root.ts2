@@ -49,6 +49,8 @@ page = Page {
 				site = ${site}
 			}
 			userMenu = Menu {
+				maximumLevels = 1
+				startingPoint = ${q(site).children('user').get(0)}
 				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/UserMenu.html'
 				userObject = ${Configuration.setting('Flowpack.Neos.FrontendUserManager.userObject')}
 				providerName = ${Configuration.setting('Flowpack.Neos.FrontendUserManager.providerName')}
@@ -64,6 +66,11 @@ page = Page {
 						authenticated = ${Authentication.isAuthenticated(this.providerName)}
 					}
 				}
+			}
+			metaMenu = Menu {
+				maximumLevels = 1
+				startingPoint = ${q(site).children('meta').get(0)}
+				templatePath = 'resource://MapSeven.Neos.Snippets/Private/Templates/TypoScriptObjects/Menu/MetaMenu.html'
 			}
 			login = Flowpack.Neos.FrontendUserManager:Login
 		}

@@ -1,11 +1,4 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
-<ul class="text-center">
-    <f:for each="{items}" as="item" iteration="menuItemIterator">
-        <li class="{item.state}"><neos:link.node node="{item.node}">{item.label}</neos:link.node></li>
-        <f:if condition="{menuItemIterator.isLast}">
-            <f:else>
-                <li class="footer-menu-divider">&sdot;</li>
-            </f:else>
-        </f:if>
-    </f:for>
-</ul>
+<f:for each="{items}" as="item" iteration="menuItemIterator">
+    <neos:link.node node="{item.node}">{item.label}</neos:link.node>{f:if(condition:menuItemIterator.isLast, then: '', else: '&sdot;')}
+</f:for>
