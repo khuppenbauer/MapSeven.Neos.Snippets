@@ -22,6 +22,20 @@ page = Page {
 		}
 
 		stylesheets.foundation >
+
+		titleTag {
+			// Overwrite the title tags content with a collection to create a breadcrumb
+			content = TYPO3.TypoScript:Collection {
+				// Retrieve all parent document nodes excluding the homepage
+				collection = ${q(documentNode).add(q(documentNode).parents()).slice(0, -1).get()}
+				itemName = 'node'
+				iterationName = 'nodeIterator'
+				// Implode node titles with a dash
+				itemRenderer = ${q(node).property('title') + (nodeIterator.isLast ? '' : ' - ')}
+				// Always add general site name as suffix
+				@process.siteName = ${(TitleTag.resolveFromRoute('--flowpack_snippets-search.post', 'Flowpack\Snippets\Domain\Model\Post', 'title') ? TitleTag.resolveFromRoute('--flowpack_snippets-search.post', 'Flowpack\Snippets\Domain\Model\Post', 'title') : value)}
+			}
+		}
 	}
 
 	body {
@@ -77,6 +91,7 @@ page = Page {
 		entryIdentifier {
 			authenticationIdentifier = ${Authentication.identifier(Configuration.setting('Flowpack.Neos.FrontendUserManager.userObject'), 'identifier')}
 			authenticated = ${Authentication.isAuthenticated(Configuration.setting('Flowpack.Neos.FrontendUserManager.providerName'))}
+			titleTag = ${TitleTag.resolveFromRoute('--flowpack_snippets-search.post', 'Flowpack\Snippets\Domain\Model\Post', 'title')}
 		}
 	}
 }
@@ -129,6 +144,7 @@ root {
 		entryIdentifier {
 			authenticationIdentifier = ${Authentication.identifier(Configuration.setting('Flowpack.Neos.FrontendUserManager.userObject'), 'identifier')}
 			authenticated = ${Authentication.isAuthenticated(Configuration.setting('Flowpack.Neos.FrontendUserManager.providerName'))}
+			titleTag = ${TitleTag.resolveFromRoute('--flowpack_snippets-search.post', 'Flowpack\Snippets\Domain\Model\Post', 'title')}
 		}
 	}
 }
