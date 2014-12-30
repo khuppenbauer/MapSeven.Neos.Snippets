@@ -106,3 +106,14 @@
         </div>
     </div>
 </f:if>
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        var identifier = '{post -> f:format.identifier()}';
+        $.ajax({
+            type: 'POST',
+            url: '/Post/countViews',
+            data: {post: identifier},
+            dataType: 'json'
+        });
+    });
+</script>

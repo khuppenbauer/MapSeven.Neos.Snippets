@@ -144,7 +144,7 @@
                                 <f:link.action action="show" controller="post" arguments="{post: post}" section="comments">{post.numberOfComments}</f:link.action>
                             </li>
                             <li class="left">
-                                <i class="fa fa-eye fa-fw"></i>{post.views}
+                                <i class="fa fa-eye fa-fw"></i>{post.numberOfViews}
                             </li>
                             <li class="left">
                                 <i class="fa fa-thumbs{f:if(condition:post.upVote, then: '', else: '-o')}-up fa-fw"></i>{post.numberOfVotes}
