@@ -150,8 +150,14 @@ ul.cbp-tm-menu button, ul.cbp-tm-menu .button, ul.cbp-tm-menu form {
     margin: 0;
 }
 
-nav .cbp-tm-menu.register a:hover:after {
+nav .cbp-tm-menu.register a:hover:after, nav .cbp-tm-menu.user a:hover:after {
     background: none;
+}
+
+nav .cbp-tm-menu.user a.button:hover:after,
+nav .cbp-tm-menu.user a.button:focus,
+nav .cbp-tm-menu.user a.button:hover {
+    color: #ccc!important;
 }
 
 .cbp-tm-menu.left {

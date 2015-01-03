@@ -1,0 +1,17 @@
+<h5>Notifications</h5>
+<ul class="no-bullet">
+    <f:for each="{events}" key="key" as="numberOfEvents">
+        <li>
+            <f:switch expression="{key}">
+                <f:case value="user.followed"><i class="fa fa-user fa-fw"></i></f:case>
+                <f:case value="post.created"><i class="fa fa-code fa-fw"></i></f:case>
+                <f:case value="post.voted.up"><i class="fa fa-thumbs-o-up fa-fw"></i></f:case>
+                <f:case value="post.voted.down"><i class="fa fa-thumbs-o-down fa-fw"></i></f:case>
+                <f:case value="post.favored"><i class="fa fa-star-o fa-fw"></i></f:case>
+                <f:case value="comment.created"><i class="fa fa-comments fa-fw"></i></f:case>
+            </f:switch>
+            <f:translate id="{key}" arguments="{0: numberOfEvents}" quantity="{numberOfEvents}"><span class="normal">{event} {key}</span></f:translate>
+        </li>
+    </f:for>
+</ul>
+<a class="close-reveal-modal">&#215;</a>

@@ -1,7 +1,7 @@
 <f:if condition="{isAuthenticated}">
     <f:then>
         <ul id="cbp-tm-menu-user" class="cbp-tm-menu user right">
-            <li><span class="normal"><i class="fa fa-bell"></i><span class="button round tiny" style="position: absolute; top: -10px; left: 20px;">5</span></span> </li>
+            <li>{notification -> f:format.raw()}</li>
             <li>
                 <span class="normal"><i class="fa fa-caret-down"></i> {user.name.alias}</span>
                 <ul class="cbp-tm-submenu">

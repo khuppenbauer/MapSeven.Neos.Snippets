@@ -58,6 +58,7 @@ page = Page {
 				isAuthenticated = ${Authentication.isAuthenticated(this.providerName)}
 				login = Flowpack.Neos.FrontendUserManager:Login
 				logout = Flowpack.Neos.FrontendUserManager:Logout
+				notification = Flowpack.Snippets:Notification
 				@cache {
 					entryIdentifier {
 						documentNode = ${documentNode}
