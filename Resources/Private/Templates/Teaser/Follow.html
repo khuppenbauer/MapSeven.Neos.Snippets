@@ -5,12 +5,12 @@
         <ul class="no-bullet">
             <li>
                 <f:link.action action="search" arguments="{category: post.category.name}" controller="Search">{post.category.name}</f:link.action> ({post.category.numberOfPosts})
-                <a href="#" class="jq-follow-category" data-category="{post.category -> f:format.identifier()}"><i class="icon-{f:if(condition:post.category.followed, then: 'minus', else: 'plus')}-squared"></i></a>
+                <a href="#" class="jq-follow-category icon-{f:if(condition:post.category.followed, then: 'minus', else: 'plus')}-squared" data-category="{post.category -> f:format.identifier()}"></a>
             </li>
             <f:for each="{post.tags}" as="tag">
                 <li>
                     <f:link.action action="search" arguments="{tag: tag.name}" controller="Search">{tag}</f:link.action> ({tag.numberOfPosts})</span>
-                    <a href="#" class="jq-follow-tag" data-tag="{tag -> f:format.identifier()}"><i class="icon-{f:if(condition:tag.followed, then: 'minus', else: 'plus')}-squared"></i></a></span>
+                    <a href="#" class="jq-follow-tag icon-{f:if(condition:tag.followed, then: 'minus', else: 'plus')}-squared" data-tag="{tag -> f:format.identifier()}"></a></span>
                 </li>
             </f:for>
         </ul>

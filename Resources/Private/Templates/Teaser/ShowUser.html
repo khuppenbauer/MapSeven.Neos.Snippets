@@ -6,7 +6,7 @@
         <div class="small-8 columns" style="padding-left: 0;">
             {post.author.name.alias}
             <f:if condition="{user}">
-                <a href="#" class="jq-follow-user" data-user="{post.author -> f:format.identifier()}"><i class="icon-{f:if(condition:post.author.followed, then: 'minus', else: 'plus')}-squared"></i></a>
+                <a href="#" class="jq-follow-user icon-{f:if(condition:post.author.followed, then: 'minus', else: 'plus')}-squared" data-user="{post.author -> f:format.identifier()}"></a>
             </f:if>
             <br /><br />
             <f:link.action action="search" arguments="{author: post.author.name.alias}" controller="Search">{post.author.numberOfPosts} Snippets</f:link.action><br />
